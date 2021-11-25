@@ -1,4 +1,3 @@
-
 import pygame as p
 from sys import exit
 
@@ -74,14 +73,17 @@ class Intro(p.sprite.Sprite):
 intro = p.sprite.GroupSingle()
 intro.add(Intro())
 
+# Game Cycle
 while True:
     for event in p.event.get():
         if event.type == p.QUIT:
             p.quit()
             exit()
-    # Intro
+
+    # Intro Draw
     intro.draw(screen)
     intro.update()
 
+    # Display update and frame rate
     p.display.update()
     clock.tick(60)
