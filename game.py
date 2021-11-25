@@ -8,6 +8,7 @@ game_resolution = (1200, 800)
 screen = p.display.set_mode(game_resolution)
 p.display.set_caption('Infernum Bound')
 clock = p.time.Clock()
+test_font = p.font.Font('graphics/Pixeltype.ttf', 50)
 
 
 # Classes
@@ -28,7 +29,7 @@ class Intro(p.sprite.Sprite):
         self.intro_screen_index = 0
         self.image = self.intro_screen[self.intro_screen_index]
         self.rect = self.image.get_rect(topleft=(0, 0))
-        bg_music = p.mixer.Sound('sounds/intro_loop.ogg')
+        bg_music = p.mixer.Sound('audio/intro_loop.ogg')
         bg_music.play(loops=-1)
 
     def animation_state(self):
@@ -38,14 +39,14 @@ class Intro(p.sprite.Sprite):
             self.image = self.intro_screen[self.intro_screen_index]
             p.time.delay(500)
             if self.intro_screen_index == 1:
-                p.mixer.Channel(1).play(p.mixer.Sound("sounds/thunder.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
             elif self.intro_screen_index == 2:
-                p.mixer.Channel(1).play(p.mixer.Sound("sounds/wicked_laugh.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/wicked_laugh.mp3"))
             elif self.intro_screen_index == 3:
-                p.mixer.Channel(1).play(p.mixer.Sound("sounds/opening_door.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/opening_door.mp3"))
             elif self.intro_screen_index == 4:
-                p.mixer.Channel(1).play(p.mixer.Sound("sounds/closing_door.mp3"))
                 self.intro_screen_index = 3
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/closing_door.mp3"))
 
     def update(self):
         self.animation_state()
