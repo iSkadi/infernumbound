@@ -39,14 +39,14 @@ class Intro(p.sprite.Sprite):
             self.image = self.intro_screen[self.intro_screen_index]
             p.time.delay(500)
             if self.intro_screen_index == 1:
-                p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("sounds/thunder.mp3"))
             elif self.intro_screen_index == 2:
-                p.mixer.Channel(1).play(p.mixer.Sound("audio/wicked_laugh.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("sounds/wicked_laugh.mp3"))
             elif self.intro_screen_index == 3:
-                p.mixer.Channel(1).play(p.mixer.Sound("audio/opening_door.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("sounds/opening_door.mp3"))
             elif self.intro_screen_index == 4:
                 self.intro_screen_index = 3
-                p.mixer.Channel(1).play(p.mixer.Sound("audio/closing_door.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("sounds/closing_door.mp3"))
 
     def update(self):
         self.animation_state()
