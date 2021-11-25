@@ -34,7 +34,7 @@ class Intro(p.sprite.Sprite):
     def animation_state(self):
 
         def image_zoom_animation():
-            local_timer = p.time.get_ticks() + 5000
+            local_timer = p.time.get_ticks()
             zoom = 1.00001
             for i in range(local_timer):
                 zoom += 0.00001
