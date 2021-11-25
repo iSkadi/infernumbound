@@ -1,13 +1,14 @@
+
 import pygame as p
 from sys import exit
+import os
 
 # Global Game Settings and Variables
 p.init()
-game_resolution = (1200, 800)
+game_resolution = (1200, 600)
 screen = p.display.set_mode(game_resolution)
 p.display.set_caption('Infernum Bound')
 clock = p.time.Clock()
-test_font = p.font.Font('font/Pixeltype.ttf', 50)
 
 
 # Classes
@@ -37,7 +38,9 @@ class Intro(p.sprite.Sprite):
             self.intro_screen_index += 1
             self.image = self.intro_screen[self.intro_screen_index]
             p.time.delay(500)
-            if self.intro_screen_index == 4:
+            if self.intro_screen_index == 1:
+                p.mixer.Channel(1).play(p.mixer.Sound(os.path.join("audio", "thunder.mp3")))
+            elif self.intro_screen_index == 4:
                 self.intro_screen_index = 3
 
     def update(self):
