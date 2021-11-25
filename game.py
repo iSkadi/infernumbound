@@ -40,11 +40,11 @@ class Intro(p.sprite.Sprite):
             if self.intro_screen_index == 1:
                 p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
             elif self.intro_screen_index == 2:
-                p.mixer.Channel(4).play(p.mixer.Sound("audio/wicked_laugh.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/wicked_laugh.mp3"))
             elif self.intro_screen_index == 3:
-                p.mixer.Channel(2).play(p.mixer.Sound("audio/opening_door.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/opening_door.mp3"))
             elif self.intro_screen_index == 4:
-                p.mixer.Channel(3).play(p.mixer.Sound("audio/closing_door.mp3"))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/closing_door.mp3"))
                 self.intro_screen_index = 3
 
     def update(self):
