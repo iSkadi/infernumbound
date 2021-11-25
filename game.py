@@ -39,6 +39,8 @@ class Intro(p.sprite.Sprite):
             p.time.delay(500)
             if self.intro_screen_index == 1:
                 p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
+            elif self.intro_screen_index == 2:
+                p.mixer.Channel(4).play(p.mixer.Sound("audio/wicked_laugh.mp3"))
             elif self.intro_screen_index == 3:
                 p.mixer.Channel(2).play(p.mixer.Sound("audio/opening_door.mp3"))
             elif self.intro_screen_index == 4:
