@@ -1,7 +1,6 @@
 
 import pygame as p
 from sys import exit
-import os
 
 # Global Game Settings and Variables
 p.init()
@@ -39,7 +38,7 @@ class Intro(p.sprite.Sprite):
             self.image = self.intro_screen[self.intro_screen_index]
             p.time.delay(500)
             if self.intro_screen_index == 1:
-                p.mixer.Channel(1).play(p.mixer.Sound(os.path.join("audio", "thunder.mp3")))
+                p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
             elif self.intro_screen_index == 4:
                 self.intro_screen_index = 3
 
@@ -62,3 +61,6 @@ while True:
 
     p.display.update()
     clock.tick(60)
+
+
+
