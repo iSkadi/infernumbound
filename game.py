@@ -4,7 +4,7 @@ from sys import exit
 
 # Global Game Settings and Variables
 p.init()
-game_resolution = (1200, 800)
+game_resolution = (1200, 600)
 screen = p.display.set_mode(game_resolution)
 p.display.set_caption('Infernum Bound')
 clock = p.time.Clock()
@@ -39,7 +39,10 @@ class Intro(p.sprite.Sprite):
             p.time.delay(500)
             if self.intro_screen_index == 1:
                 p.mixer.Channel(1).play(p.mixer.Sound("audio/thunder.mp3"))
+            elif self.intro_screen_index == 3:
+                p.mixer.Channel(2).play(p.mixer.Sound("audio/opening_door.mp3"))
             elif self.intro_screen_index == 4:
+                p.mixer.Channel(3).play(p.mixer.Sound("audio/closing_door.mp3"))
                 self.intro_screen_index = 3
 
     def update(self):
@@ -61,6 +64,3 @@ while True:
 
     p.display.update()
     clock.tick(60)
-
-
-
