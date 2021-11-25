@@ -44,6 +44,8 @@ class Intro(p.sprite.Sprite):
                 # Shake Effect
                 if local_timer % 2 == 0:
                     self.rect.x -= 1
+                else:
+                    self.rect.x += 1
                 return self.image
 
         image_zoom_animation()
@@ -52,6 +54,7 @@ class Intro(p.sprite.Sprite):
         if keys[p.K_SPACE]:
             self.intro_screen_index += 1
             self.image = self.intro_screen[self.intro_screen_index]
+            self.rect.x = 0
             p.time.delay(500)
             if self.intro_screen_index == 1:
                 p.mixer.Channel(1).play(p.mixer.Sound("sounds/thunder.mp3"))
