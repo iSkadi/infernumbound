@@ -14,15 +14,15 @@ test_font = p.font.Font('graphics/Pixeltype.ttf', 50)
 class Intro(p.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        image_1 = p.image.load('graphics/b-1.png').convert()
+        image_1 = p.image.load('graphics/b-1.jpg').convert()
         image_1 = p.transform.scale(image_1, game_resolution)
-        image_2 = p.image.load('graphics/b-2.png').convert()
+        image_2 = p.image.load('graphics/b-2.jpg').convert()
         image_2 = p.transform.scale(image_2, game_resolution)
-        image_3 = p.image.load('graphics/b-3.png').convert()
+        image_3 = p.image.load('graphics/b-3.jpg').convert()
         image_3 = p.transform.scale(image_3, game_resolution)
-        image_4 = p.image.load('graphics/b-4.png').convert()
+        image_4 = p.image.load('graphics/b-4.jpg').convert()
         image_4 = p.transform.scale(image_4, game_resolution)
-        image_5 = p.image.load('graphics/b-5.png').convert()
+        image_5 = p.image.load('graphics/b-5.jpg').convert()
         image_5 = p.transform.scale(image_5, game_resolution)
         self.intro_screen = [image_1, image_2, image_3, image_4, image_5]
         self.intro_screen_index = 0
