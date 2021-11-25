@@ -15,24 +15,36 @@ test_font = p.font.Font('graphics/Pixeltype.ttf', 50)
 class Intro(p.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        image_1 = p.image.load('graphics/b_1.png').convert()
+        image_1 = p.image.load('graphics/b-1.png').convert()
         image_1 = p.transform.scale(image_1, game_resolution)
-        image_2 = p.image.load('graphics/b_2.png').convert()
+        image_2 = p.image.load('graphics/b-2.png').convert()
         image_2 = p.transform.scale(image_2, game_resolution)
-        image_3 = p.image.load('graphics/b_3.png').convert()
+        image_3 = p.image.load('graphics/b-3.png').convert()
         image_3 = p.transform.scale(image_3, game_resolution)
-        image_4 = p.image.load('graphics/b_4.png').convert()
+        image_4 = p.image.load('graphics/b-4.png').convert()
         image_4 = p.transform.scale(image_4, game_resolution)
-        image_5 = p.image.load('graphics/b_5.png').convert()
+        image_5 = p.image.load('graphics/b-5.png').convert()
         image_5 = p.transform.scale(image_5, game_resolution)
         self.intro_screen = [image_1, image_2, image_3, image_4, image_5]
         self.intro_screen_index = 0
         self.image = self.intro_screen[self.intro_screen_index]
-        self.rect = self.image.get_rect(topleft=(0, 0))
-        bg_music = p.mixer.Sound('audio/intro_loop.ogg')
+        self.rect = self.image.get_rect(center=(game_resolution[0] / 2, game_resolution[1] / 2))
+        bg_music = p.mixer.Sound('sounds/intro_loop.ogg')
         bg_music.play(loops=-1)
 
     def animation_state(self):
+
+        def image_zoom_animation():
+            local_timer = p.time.get_ticks()
+            zoom = 1.00001
+            for i in range(local_timer, local_timer + 5000):
+                zoom += 0.00001
+                self.image = p.transform.rotozoom(self.image, 0, zoom)
+                p.time.delay(100)
+                return self.image
+
+        image_zoom_animation()
+
         keys = p.key.get_pressed()
         if keys[p.K_SPACE]:
             self.intro_screen_index += 1
