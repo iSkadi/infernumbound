@@ -28,19 +28,22 @@ class Intro(p.sprite.Sprite):
         self.intro_screen = [image_1, image_2, image_3, image_4, image_5]
         self.intro_screen_index = 0
         self.image = self.intro_screen[self.intro_screen_index]
-        self.rect = self.image.get_rect(center=(game_resolution[0] / 2, game_resolution[1] / 2))
+        self.rect = self.image.get_rect(topleft=(0, 0))
         bg_music = p.mixer.Sound('sounds/intro_loop.ogg')
         bg_music.play(loops=-1)
 
     def animation_state(self):
 
         def image_zoom_animation():
-            local_timer = p.time.get_ticks()
+            local_timer = p.time.get_ticks() + 5000
             zoom = 1.00001
-            for i in range(local_timer, local_timer + 5000):
+            for i in range(local_timer):
                 zoom += 0.00001
                 self.image = p.transform.rotozoom(self.image, 0, zoom)
                 p.time.delay(100)
+                # Shake Effect
+                if local_timer % 2 == 0:
+                    self.rect.x -= 1
                 return self.image
 
         image_zoom_animation()
