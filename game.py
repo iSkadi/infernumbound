@@ -4,7 +4,7 @@ from sys import exit
 
 # Global Game Settings and Variables
 p.init()
-game_resolution = (1200, 600)
+game_resolution = (1200, 800)
 screen = p.display.set_mode(game_resolution)
 p.display.set_caption('Infernum Bound')
 clock = p.time.Clock()
